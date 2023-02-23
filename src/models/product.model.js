@@ -10,8 +10,8 @@ const Product = function(product){
     this.photo          = product.photo;
     
 };
-Product.create = function (newEmp, result) {    
-    dbConn.query("INSERT INTO products set ?", newEmp, function (err, res) {
+Product.create = function (newProd, result) {    
+    dbConn.query("INSERT INTO products set ?", newProd, function (err, res) {
         if(err) {
             console.log("error: ", err);
             result(err, null);

@@ -32,6 +32,7 @@ exports.createMultiple = function (req, res) {
   });
 };
 
+//crud
 exports.create = function (req, res) {
   const new_product = new Product({
     name: req.body.name,
