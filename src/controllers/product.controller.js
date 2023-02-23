@@ -16,6 +16,7 @@ exports.create = function (req, res) {
     name: req.body.name,
     price: req.body.price,
     description: req.body.description,
+    email: req.body.email,
     photo: req.file ? req.file.destination + req.file.filename : null,
   });
 

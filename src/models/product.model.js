@@ -48,7 +48,7 @@ Product.findAll = function (result) {
     });   
 };
 Product.update = function(id, product, result){
-  dbConn.query("UPDATE products SET name=?,price=?,email=?,description=?,photo=? WHERE id = ?", [product.name,product.price,product.description,product.photo, id], function (err, res) {
+  dbConn.query("UPDATE products SET name=?,price=?,email=?,description=?,photo=? WHERE id = ?", [product.name,product.price,product.email,product.description,product.photo, id], function (err, res) {
         if(err) {
             console.log("error: ", err);
             result(null, err);
