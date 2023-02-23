@@ -22,6 +22,8 @@ router.get("/", productController.findAll);
 // Create a new product
 router.post("/", upload.single("photo"), productController.create);
 
+router.post("/multiple", productController.createMultiple)
+
 // Retrieve a single product with id
 router.get("/:id", productController.findById);
 

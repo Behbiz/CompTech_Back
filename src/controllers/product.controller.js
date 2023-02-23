@@ -11,13 +11,36 @@ exports.findAll = function (req, res) {
   });
 };
 
+exports.createMultiple = function (req, res) {
+  req.body.forEach((product) => {
+    const new_product = new Product({
+      name: product.name,
+      price: product.precio,
+      description: product.description,
+      email: product.email,
+      photo: product.src,
+    });
+
+    //handles null error
+    Product.create(new_product, function (err, product) {
+      if (err) res.send(err);
+    });
+  });
+  res.json({
+    error: false,
+    message: "Products added successfully!",
+  });
+};
+
 exports.create = function (req, res) {
   const new_product = new Product({
     name: req.body.name,
     price: req.body.price,
     description: req.body.description,
     email: req.body.email,
-    photo: req.file ? req.file.destination + req.file.filename : null,
+    photo: req.file
+      ? req.file.destination + req.file.filename
+      : req.filePath || null,
   });
 
   //handles null error
